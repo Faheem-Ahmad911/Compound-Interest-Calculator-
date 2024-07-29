@@ -81,27 +81,3 @@ class BST:
                 root.item=self.min_value(root.right)
                 self.rdelete(root.right,root.item)
             return root
-
-
-
-
-
-
-
-
-
-
-        
-        
-
-        
-
-
-    
-
-
-            
-        
-
-        
-    
