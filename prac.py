@@ -22,52 +22,35 @@ def start_button_click():
 def open_calculator():
     calculator_window = Toplevel(root)
     calculator_window.title("Compound Interest Calculator")
-    photo = PhotoImage(file = "Python Project/Black and Teal Modern Letter C Technology Logo Design (1).png")
-    calculator_window.iconphoto(False, photo)
 
     # Set the size of the calculator window to match the main window
     width = root.winfo_width()
     height = root.winfo_height()
     calculator_window.geometry(f"{width}x{height}")
     calculator_window.configure(background="black")
+    
 
-    # Make the calculator window not resizable
-    calculator_window.resizable(False, False)
-    # icon phot
-    # calculator_window.iconphoto(False, icon)
 
     # Create a frame for the labels and entry fields
     frame = LabelFrame(calculator_window, text="Enter Value Here", padx=50, pady=60, bg="black", fg='white')
     frame.pack(padx=10, pady=30, expand=True, fill=BOTH)
 
-    # Define a font for the labels
-    label_font = ("Albertus", 14)
-
     # Create labels
-    label1 = Label(frame, text="Principal Amount (Rs):", fg='white', bg='#008c87', font=label_font)
-    label2 = Label(frame, text="Rate (%):", fg='white', bg='#008c87', font=label_font)
-    label3 = Label(frame, text="Time (years):", fg='white', bg='#008c87', font=label_font)
-    label4 = Label(frame, text="Compound Interest:", fg='white', bg='#008c87', font=label_font)
-    # Define a font for the entry fields
-    entry_font = ("Arial", 14)
-    entry_width = 15
-    # Create entry fields
-    principal_field = Entry(frame, font=entry_font, width=entry_width)
-    rate_field = Entry(frame, font=entry_font, width=entry_width)
-    time_field = Entry(frame, font=entry_font, width=entry_width)
-    compound_field = Entry(frame, font=entry_font, width=entry_width)
+    label1 = Label(frame, text="Principal Amount (Rs):", fg='white', bg='#008c87')
+    label2 = Label(frame, text="Rate (%):", fg='white', bg='#008c87')
+    label3 = Label(frame, text="Time (years):", fg='white', bg='#008c87')
+    label4 = Label(frame, text="Compound Interest:", fg='white', bg='#008c87')
 
-    # Define a font and padding for the buttons
-    button_font = ("Arial", 14)
-    button_padx = 5
-    button_pady = 5
+    # Create entry fields
+    principal_field = Entry(frame)
+    rate_field = Entry(frame)
+    time_field = Entry(frame)
+    compound_field = Entry(frame)
 
     # Create buttons
     button1 = Button(frame, text="Submit", bg="#008c87", fg="black",
-                     font=button_font, padx=button_padx, pady=button_pady,
                      command=lambda: calculate_ci(principal_field, rate_field, time_field, compound_field))
     button2 = Button(frame, text="Clear", bg="#008c87", fg="black",
-                     font=button_font, padx=button_padx, pady=button_pady,
                      command=lambda: clear_all(principal_field, rate_field, time_field, compound_field))
 
     # Layout the widgets in the frame
@@ -80,10 +63,10 @@ def open_calculator():
     label3.grid(row=2, column=0, padx=10, pady=10, sticky=W)
     time_field.grid(row=2, column=1, padx=10, pady=10)
     
-    label4.grid(row=4, column=0, padx=10, pady=10, sticky=W)
+    label4.grid(row=4, column=0,padx=10, pady=10, sticky=W)
     compound_field.grid(row=4, column=1, padx=10, pady=10)
     
-    button1.grid(row=3, column=1, pady=5, sticky=E)
+    button1.grid(row=3, column=1,pady=5, sticky=E)
     button2.grid(row=5, column=1, pady=5, sticky=E)
 
 # Function to clear the contents of all entry boxes
@@ -109,9 +92,7 @@ def calculate_ci(principal_field, rate_field, time_field, compound_field):
 
 # Create the main window
 root = Tk()
-root.title("Compound Interest Calculator")
-photo = PhotoImage(file = "Python Project/Black and Teal Modern Letter C Technology Logo Design (1).png")
-root.iconphoto(False, photo)
+root.title("Main Window")
 
 # Load the image
 image_path = "Python Project/Black and Teal Modern Letter C Technology Logo Design (1).png"
@@ -122,14 +103,9 @@ photo_image = ImageTk.PhotoImage(original_image)
 root.geometry(f"{photo_image.width()}x{photo_image.height()}")
 root.configure(background="#008080")
 
-# Make the calculator window not resizable
-root.resizable(False, False)
-
 # Create a canvas to display the image
 canvas = Canvas(root, width=photo_image.width(), height=photo_image.height())
 canvas.pack(fill=BOTH, expand=YES)
-
-
 
 # Add the image to the canvas
 canvas.create_image(0, 0, anchor=NW, image=photo_image)

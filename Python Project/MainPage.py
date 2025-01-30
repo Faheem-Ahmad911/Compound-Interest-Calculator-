@@ -109,7 +109,7 @@ def calculate_ci(principal_field, rate_field, time_field, compound_field):
 
 # Create the main window
 root = Tk()
-root.title("Compound Interest Calculator")
+root.title("Main Window")
 photo = PhotoImage(file = "Python Project/Black and Teal Modern Letter C Technology Logo Design (1).png")
 root.iconphoto(False, photo)
 
